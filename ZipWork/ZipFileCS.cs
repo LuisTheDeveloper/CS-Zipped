@@ -13,7 +13,7 @@ namespace ZipFiles
             //Constructor code
         }
 
-
+        //Count the number of files inside the zip file
         public int NumberOfFiles()
         {
             int wFileCount = 0;

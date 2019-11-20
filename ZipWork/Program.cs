@@ -1,18 +1,26 @@
 ﻿using System;
 
+
 namespace ZipFiles
 {
     class Program
     {
         static void Main(string[] args)
         {
-           
-            ZipFileCS myZip = new ZipFileCS();
+            string FilePath;
 
-            myZip.ZipFilePath = "C:/twix/SSP MTA EDI messages 20.11.19.zip";
+            Console.WriteLine("Insert complete path for the Excel file:");
+            FilePath = Console.ReadLine();
+            
+            Console.WriteLine("Insert complete path for the zip file:");
+            FilePath = Console.ReadLine();
+
+            ZipFileCS myZip = new ZipFileCS();
+            myZip.ZipFilePath = FilePath;
             int wFileCount = myZip.NumberOfFiles();
             Console.WriteLine($"The zip file:{myZip.ZipFilePath} has {wFileCount} files inside.");
-            Console.ReadLine();
+
+
         }
     }
 }
