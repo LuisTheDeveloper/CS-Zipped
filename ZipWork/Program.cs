@@ -1,12 +1,18 @@
 ﻿using System;
 
-namespace ZipWork
+namespace ZipFiles
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           
+            ZipFileCS myZip = new ZipFileCS();
+
+            myZip.ZipFilePath = "C:/twix/SSP MTA EDI messages 20.11.19.zip";
+            int wFileCount = myZip.NumberOfFiles();
+            Console.WriteLine($"Number of zip files {wFileCount}");
+            Console.ReadLine();
         }
     }
 }
