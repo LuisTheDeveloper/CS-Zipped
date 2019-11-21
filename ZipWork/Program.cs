@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace ZipFiles
+namespace ZipWork
 {
     class Program
     {
@@ -18,8 +18,11 @@ namespace ZipFiles
             ZipFileCS myZip = new ZipFileCS();
             myZip.ZipFilePath = FilePath;
             int wFileCount = myZip.NumberOfFiles();
-            Console.WriteLine($"The zip file:{myZip.ZipFilePath} has {wFileCount} files inside.");
 
+            if (wFileCount == 0)
+                Console.WriteLine($"{myZip.MoreInfo}");
+            else
+                Console.WriteLine($"The zip file:{myZip.ZipFilePath} has {wFileCount} files inside.");
 
         }
     }

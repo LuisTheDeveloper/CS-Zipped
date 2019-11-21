@@ -12,7 +12,6 @@ namespace ZipWork
             Excel.Application xlApp = new Excel.Application();
             Excel.Workbook xlWrkBook = xlApp.Workbooks.Open(FilePath);
 
-
             xlWrkBook.Close();
             xlApp.Quit();
         }

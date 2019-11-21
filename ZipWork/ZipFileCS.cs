@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 using System.IO.Compression;
 
-namespace ZipFiles
+namespace ZipWork
 {
     public class ZipFileCS
     {
@@ -19,6 +20,11 @@ namespace ZipFiles
             int wFileCount = 0;
             String FilePath = wPath;
 
+            if (!File.Exists(FilePath)) {
+                wInfo = "Incorrect filename.";
+                return 0;
+            }
+            
             using (ZipArchive csZipArchive = ZipFile.OpenRead(FilePath))
             {
                 foreach (var entry in csZipArchive.Entries)
@@ -30,14 +36,20 @@ namespace ZipFiles
             return wFileCount;
         }
 
-        // Private field only accessable by property
+        // Private fields only accessable by property
         private string wPath;
+        private string wInfo;
 
         public string ZipFilePath
         {
             get { return wPath; }
             set { wPath = value; }
 
+        }
+
+        public string MoreInfo
+        {
+            get { return wInfo; }
         }
 
     }
