@@ -50,7 +50,7 @@ namespace ZipWork
             return wFileCount;
         }
 
-        // Private fields only accessable by property
+        // Private fields only accessible by property
         private string wPath;
         private string wInfo;
 
