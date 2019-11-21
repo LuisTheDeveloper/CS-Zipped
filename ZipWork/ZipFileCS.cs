@@ -20,19 +20,33 @@ namespace ZipWork
             int wFileCount = 0;
             String FilePath = wPath;
 
+
             if (!File.Exists(FilePath)) {
                 wInfo = "Incorrect filename.";
                 return 0;
             }
-            
-            using (ZipArchive csZipArchive = ZipFile.OpenRead(FilePath))
+
+            try
             {
-                foreach (var entry in csZipArchive.Entries)
+                using (ZipArchive csZipArchive = ZipFile.OpenRead(FilePath))
                 {
-                    if (!string.IsNullOrEmpty(entry.Name))
-                        wFileCount += 1;
+                    foreach (var entry in csZipArchive.Entries)
+                    {
+                        if (!string.IsNullOrEmpty(entry.Name))
+                            wFileCount += 1;
+                    }
                 }
             }
+            catch (UnauthorizedAccessException)
+            {
+                wInfo = "Warning: Authorization required to open that file/object.";
+            }
+            finally
+            {
+                if (wInfo.Length > 0)
+                    wFileCount = 0;
+            }
+
             return wFileCount;
         }
 
