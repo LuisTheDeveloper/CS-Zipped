@@ -7,16 +7,17 @@ namespace ZipWork
     {
         static void Main(string[] args)
         {
-            string FilePath;
+            string ZipPath;
+            string XlsPath;
 
             Console.WriteLine("Insert complete path for the Excel file:");
-            FilePath = Console.ReadLine();
+            XlsPath = Console.ReadLine();
             
             Console.WriteLine("Insert complete path for the zip file:");
-            FilePath = Console.ReadLine();
+            ZipPath = Console.ReadLine();
 
             ZipFileCS myZip = new ZipFileCS();
-            myZip.ZipFilePath = FilePath;
+            myZip.ZipFilePath = ZipPath;
             int wFileCount = myZip.NumberOfFiles();
 
             if (wFileCount == 0)
